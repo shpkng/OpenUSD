@@ -689,7 +689,7 @@ if MacOS():
     BOOST_VERSION_FILE = "include/boost/version.hpp"
 elif Linux():
     if Python3():
-        BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.70.0/source/boost_1_70_0.tar.gz"
+        BOOST_URL = "https://zenlayer.dl.sourceforge.net/project/boost/boost/1.70.0/boost_1_70_0.tar.gz"
     else:
         BOOST_URL = "https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz"
     BOOST_VERSION_FILE = "include/boost/version.hpp"
