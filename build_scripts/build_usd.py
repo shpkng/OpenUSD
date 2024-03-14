@@ -725,7 +725,7 @@ def InstallBoost_Helper(context, force, buildArgs):
 
         # b2 supports at most -j64 and will error if given a higher value.
         num_procs = min(64, context.numJobs)
-	num_procs = 1
+	# num_procs = 1
 
         # boost only accepts three variants: debug, release, profile
         boostBuildVariant = "profile"
