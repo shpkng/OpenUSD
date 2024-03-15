@@ -28,7 +28,7 @@
 #include "pxr/base/arch/defines.h"
 #include "pxr/base/arch/env.h"
 
-#if !defined(ARCH_OS_WINDOWS)
+#if 0
 #   include <dlfcn.h>
 #endif
 #include <cstring>
@@ -42,7 +42,7 @@
 PXR_NAMESPACE_OPEN_SCOPE
 
 // Malloc hooks were removed in glibc 2.34.
-#if defined(ARCH_OS_LINUX) && \
+#if 0 && \
     defined(__GLIBC__) && __GLIBC__ <= 2 && __GLIBC_MINOR__ < 34
 #define MALLOC_HOOKS_AVAILABLE
 #endif
@@ -132,7 +132,7 @@ static bool
 _MallocProvidedBySameLibraryAs(const char* functionName,
                                bool skipMallocCheck)
 {
-#if !defined(ARCH_OS_WINDOWS)
+#if 0
     const void* function = dlsym(RTLD_DEFAULT, functionName);
     if (!function) {
         return false;
@@ -234,8 +234,8 @@ ArchIsPtmallocActive()
 bool
 ArchIsStlAllocatorOff()
 {
-#if defined(ARCH_COMPILER_GCC) || defined(ARCH_COMPILER_ICC) || \
-    defined(ARCH_COMPILER_CLANG)
+#if 0
+    
     // I'm assuming that ICC compiles will use the gcc STL library.
 
     /*
@@ -268,7 +268,7 @@ ArchMallocHook::Initialize(
     ARCH_UNUSED_ARG void  (*freeWrapper)(void*, const void*),
     string* errMsg)
 {
-#if !defined(ARCH_OS_LINUX)
+#if 1
     *errMsg = "ArchMallocHook only available for Linux/glibc systems";
     return false;
 #elif !defined(MALLOC_HOOKS_AVAILABLE)
